@@ -60,7 +60,7 @@ onrd.push(async function() {
             cmp_obj.style.transform = "";
             if (cmp_obj.tagName == 'VIDEO') {
                 cmp_obj.pause();
-                cmp_obj.fastSeek(0);
+                cmp_obj.currentTime = 0;
             } 
         }
         c.$$('#div_vid_ctrls').removeAttribute('playing');

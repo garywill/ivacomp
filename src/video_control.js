@@ -48,7 +48,7 @@ function syncVideosProg(n=1)
         
         if ( parseInt(videoEle.getAttribute('n') ) != n )
         {
-            videoEle.fastSeek( c.$$(`video.cmp_obj[n="${n}"]`).currentTime )
+            videoEle.fastSeek( c.$$(`video.cmp_obj[n="${n}"]`).currentTime ) // TODO no fastseek
         }
     } 
 }
