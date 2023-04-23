@@ -27,7 +27,7 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader']
-            }
+            }, 
         ]
     },
     plugins: [
@@ -97,12 +97,17 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    
                     context: 'src/examples/', 
                     from: '**/*', 
                     to: 'examples/[path][name][ext]', 
                 }
             ], 
+            [
+                {
+                    context: 'src/tbg.webp', 
+                    
+                }
+            ] , 
         }), 
     ]
 }

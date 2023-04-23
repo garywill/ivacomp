@@ -18,6 +18,7 @@ var aniHandler = {
         
         this.curObj = 0;
         this.timerId = null; 
+        c.$$('#div_curObjN').textContent = '-';
         
         const divs = cmpObjHandler.getCurrentCmpDivs();
         const N = divs.length;
@@ -28,7 +29,8 @@ var aniHandler = {
     }, 
     startAni() {
         this.curObj = 0;
-        this.timerId = setInterval(this.nextAniFrame, 1000);
+        c.$$('#div_curObjN').textContent = '-';
+        this.timerId = setInterval(this.nextAniFrame, 1300);
     }, 
     stopAni() {
         clearInterval(this.timerId);
@@ -40,6 +42,7 @@ var aniHandler = {
             this.curObj += 1;
         else 
             this.curObj = 1;
+        c.$$('#div_curObjN').textContent = this.curObj;
         
         for (var n=1; n<this.curObj; n++) {
             c.$$(`#div_n_medias_cont .cmp_div[n="${n}"]`).style.width = `${2*n}%`;
