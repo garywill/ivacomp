@@ -17,6 +17,9 @@ window.cmpObjHandler = cmpObjHandler;
 
 import './video_control' ;
 
+import { aniHandler } from './ani' ;
+window.aniHandler = aniHandler;
+
 var onrd = new Array(); //on document ready
 c.onDCL( async (event) => {
 
@@ -38,12 +41,32 @@ onrd.push(async function() {
         setCmpObjsPanzoom();
     });
 });
+onrd.push(async function() {
+    c.$$('#div_n_medias_cont').addEventListener('cmpObjsDomRefreshed', function() {
+        setCmpObjsSize();
+        aniHandler.startAni();
+    });
+});
+
+onrd.push(async function() {
+   aniHandler.init();
+});
 
 onrd.push(async function() {
     cmpObjHandler.refreshDom();
 });
 
 
+
+function setCmpObjsSize() {
+    const cont_width = getComputedStyle(c.$$('#div_n_medias_cont')).width;
+    const cont_height = getComputedStyle(c.$$('#div_n_medias_cont')).height;
+    const cmp_obj_eles = c.$$$('.cmp_obj');
+    for (var cmp_obj_ele of cmp_obj_eles) {
+        cmp_obj_ele.style.maxWidth = cont_width;
+        cmp_obj_ele.style.maxHeight = cont_height;
+    }
+}
 function setCmpObjsPanzoom() {
     for (var ele of c.$$$('.cmp_obj') ) {
         var instance = panzoom(ele);

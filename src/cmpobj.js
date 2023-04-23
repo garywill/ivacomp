@@ -51,6 +51,9 @@ var cmpObjHandler = {
     getCurrentCmpObjEles() {
         return c.$$$('#div_n_medias_cont .cmp_obj') ;
     }, 
+    getCurrentCmpDivs() {
+        return c.$$$('#div_n_medias_cont .cmp_div') ;
+    }, 
     addNewCmpObj(n, type, src) {
         this.cmpObjs.splice(n-1, 0, { type: type, src: src} );
         this.refreshDom();
