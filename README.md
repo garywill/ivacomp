@@ -1,3 +1,5 @@
-# ivmComp
+# ivacomp
 
-"ivmComp" is short for "Image Video Medias Compression & Compare".
+"ivacomp" is short for "Image Video Audio Compressing & Comparing".
+
+> in construction
