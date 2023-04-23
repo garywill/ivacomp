@@ -1,29 +1,36 @@
 body {
     margin: 0px;
 }
-#div_curObjN {
+#div_curObjN , #div_vid_ctrls, #div_reset_zoom {
     position: fixed;
+    z-index: 300;
+}
+#div_curObjN {
     top: 0px;
     left: 50vw;
-    text-align: center;
     font-size: 60px;
     font-weight: bold;
     color: orange;
     text-shadow: 1px 1px white, 2px 2px black;
-    z-index: 300;
 }
 #div_vid_ctrls {
-    position: fixed;
     bottom: 20px;
     left: 20px;
-    text-align: center;
     font-weight: bold;
-    z-index: 300;
-    
     #btn_play_pause {
         font-size: 30px;
     } 
 }
+#div_reset_zoom {
+    top: 20px;
+    left: 20px;
+    font-weight: bold;
+    #btn_reset_zoom{
+        font-size: 30px;
+    }
+}
+
+
 
 #div_n_medias_cont {
     border: 1px solid gray;

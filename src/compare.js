@@ -56,6 +56,19 @@ onrd.push(async function() {
     cmpObjHandler.refreshDom();
 });
 
+onrd.push(async function() {
+    c.$$('#btn_reset_zoom').addOnClk(function() {
+        const cmp_objs = c.$$$('#div_n_medias_cont .cmp_div .cmp_obj')
+        for (var cmp_obj of cmp_objs) {
+            cmp_obj.style.transform = "";
+            if (cmp_obj.tagName == 'VIDEO') {
+                cmp_obj.pause();
+                cmp_obj.fastSeek(0);
+            } 
+        }
+        c.$$('#div_vid_ctrls').removeAttribute('playing');
+    });
+});
 
 
 function setCmpObjsSize() {
