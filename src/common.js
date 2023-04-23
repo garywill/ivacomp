@@ -53,7 +53,7 @@ Object.prototype.q$ = function(selectorStr) {
         obj.length !== undefined && obj.length > 0
     )
     {
-        for( subObj of obj )
+        for(var subObj of obj )
         {
             result = handleNonArrayObject(subObj);
             if (result)
@@ -61,6 +61,7 @@ Object.prototype.q$ = function(selectorStr) {
         }
     }
     
+    console.log("q$() returning", result);
     return result;
 }
 Object.prototype.q$$ = function(selectorStr) {
@@ -78,7 +79,7 @@ Object.prototype.q$$ = function(selectorStr) {
         obj.length !== undefined && obj.length > 0
     )
     {
-        for( subObj of obj )
+        for(var subObj of obj )
         {
             result = result.concat ( Array.from (handleNonArrayObject(subObj) ) );
         }
@@ -106,7 +107,7 @@ Object.prototype.addOnClk = function(f) {
         obj.length !== undefined && obj.length > 0
     )
     {
-        for( subObj of obj )
+        for(var subObj of obj )
         {
             handleNonArrayObject(subObj);
         }
