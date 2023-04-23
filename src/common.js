@@ -61,7 +61,7 @@ Object.prototype.q$ = function(selectorStr) {
         }
     }
     
-    console.log("q$() returning", result);
+    // console.log("q$() returning", result);
     return result;
 }
 Object.prototype.q$$ = function(selectorStr) {
@@ -161,6 +161,11 @@ function addListenerNDelay(eventOwner, eventName, msDelay, callbackFunction)
     eventOwner.addEventListener(eventName, callbackWrapper);
 }
 
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 export { 
     onDCL  , 
     $$, 
@@ -168,6 +173,6 @@ export {
     htmlStr2dom, 
     removeNode, 
     addListenerNDelay, 
-
+    sleep, 
 } ;
 
