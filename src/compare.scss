@@ -73,6 +73,9 @@
         top: -240px;
         width: 2000px;
         height: 2000px;
+        
+        image-rendering: pixelated;
+        // image-rendering: crisp-edges;
     } 
 
 }
