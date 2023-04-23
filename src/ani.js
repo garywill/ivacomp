@@ -17,7 +17,7 @@ var aniHandler = {
         // console.debug('resetAni()');
         
         this.curObj = 0;
-        this.timerId = null; 
+        // aniHandler.timerId = null; // 这里有就造成其他地方读到都是null。未知问题 TODO
         c.$$('#div_curObjN').textContent = '-';
         
         const divs = cmpObjHandler.getCurrentCmpDivs();
