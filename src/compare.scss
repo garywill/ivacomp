@@ -31,9 +31,48 @@
         width: 300px;
         border-right: 2px solid red;
     }
+    
+    .cmp_div[n='1'] {
+		animation-name: moveright; // 动画名称
+		animation-direction: alternate; // 动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放。
+		animation-timing-function: ease-in; // 动画执行方式，linear：匀速；ease：先慢再快后慢；ease-in：由慢速开始；ease-out：由慢速结束；ease-in-out：由慢速开始和结束；
+		animation-delay: 0s; // 动画延迟时间
+		animation-iteration-count: infinite; //  动画播放次数，infinite：一直播放
+		animation-duration: 1s; // 动画完成时间
+	}
+
+	@keyframes moveright {
+        0%{
+            width: 100px;
+        }
+        45%{
+            width: 100px;
+        }    
+        55%{
+            width: 900px;
+        }    
+        100%{
+            width: 900px;
+        }    
+/*        
+        10%{
+            width: 500px;
+        }    
+        90%{
+            width: 500px;
+        }    
+        100%{
+            width: 100px;
+        }     */
+        
+        
+    } 
+    
     .cmp_img {
-        width: 900px;
-        height: 600px;
+        left: -300px;
+        top: -240px;
+        width: 2000px;
+        height: 2000px;
     } 
 
 }
