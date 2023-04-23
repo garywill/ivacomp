@@ -32,18 +32,18 @@ var cmpObjHandler = {
     cmpObjs: [
         // type = 'image' | 'video' | 'audio'
         {
-            type: 'image', 
-            src: 'examples/11.webp', 
+            type: 'video', 
+            src: 'examples/1.mp4', 
+
         }, 
         {
-            type: 'image', 
-            src: 'examples/22.webp', 
+            type: 'video', 
+            src: 'examples/2.mp4', 
         },        
-        {
-            type: 'image', 
-            src: 'examples/11.webp', 
-        },        
-        
+        // {
+        //     type: 'image', 
+        //     src: 'examples/11.webp', 
+        // }
     ], 
     getCurrentCmpObjAmount() {
         return this.cmpObjs.length;
@@ -114,6 +114,11 @@ var cmpObjHandler = {
                                 
             c.$$('#div_n_medias_cont').innerHTML += cmp_div_html ;
         }
+        
+        if ( c.$$('#div_n_medias_cont .cmp_div video') )
+            c.$$('#div_vid_ctrls').removeAttribute('hidden');
+        else
+            c.$$('#div_vid_ctrls').setAttribute('hidden', 'true');
         
         c.$$('#div_n_medias_cont').dispatchEvent( new Event('cmpObjsDomRefreshed'));
     }

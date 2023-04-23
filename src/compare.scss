@@ -6,11 +6,23 @@ body {
     top: 0px;
     left: 50vw;
     text-align: center;
-    font-size: 30px;
+    font-size: 60px;
     font-weight: bold;
     color: orange;
     text-shadow: 1px 1px white, 2px 2px black;
     z-index: 300;
+}
+#div_vid_ctrls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 300;
+    
+    #btn_play_pause {
+        font-size: 30px;
+    } 
 }
 
 #div_n_medias_cont {
@@ -45,13 +57,17 @@ body {
         .cmp_obj {
             // max-width: 100%;
             // max-height: 100%;
+            object-fit: contain;
             // position: absolute;
+            
+            // width: auto;
+            // height: auto;
             
             image-rendering: pixelated;
             // image-rendering: crisp-edges;
         } 
     }
     
-    
-
 }
+
+

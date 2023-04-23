@@ -63,8 +63,8 @@ function setCmpObjsSize() {
     const cont_height = getComputedStyle(c.$$('#div_n_medias_cont')).height;
     const cmp_obj_eles = c.$$$('.cmp_obj');
     for (var cmp_obj_ele of cmp_obj_eles) {
-        cmp_obj_ele.style.maxWidth = cont_width;
-        cmp_obj_ele.style.maxHeight = cont_height;
+        cmp_obj_ele.style.width = cont_width;
+        cmp_obj_ele.style.height = cont_height;
     }
 }
 function setCmpObjsPanzoom() {

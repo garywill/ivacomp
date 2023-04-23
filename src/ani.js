@@ -51,6 +51,16 @@ var aniHandler = {
             c.$$(`#div_n_medias_cont .cmp_div[n="${n}"]`).style.width = `${ 100 - 2*(N-n) }%`;
         }
         
+        for (var n=1; n<=N; n++) {
+            const video_tag = c.$$(`#div_n_medias_cont .cmp_div[n="${n}"] .cmp_vid`)
+            if (video_tag) {
+                if ( n == this.curObj )
+                    video_tag.muted=false;
+                else
+                    video_tag.muted=true;
+            }
+        } 
+        
     }, 
 }
 export {aniHandler} ;
