@@ -28,7 +28,7 @@
     }
     .cmp_div[n='1'] {
         z-index: 100;
-        width: 300px;
+        // width: 300px;
         border-right: 2px solid red;
     }
     
@@ -39,6 +39,8 @@
 		animation-delay: 0s; // 动画延迟时间
 		animation-iteration-count: infinite; //  动画播放次数，infinite：一直播放
 		animation-duration: 1s; // 动画完成时间
+		
+		pointer-events: none;
 	}
 
 	@keyframes moveright {
@@ -69,10 +71,8 @@
     } 
     
     .cmp_img {
-        left: -300px;
-        top: -240px;
-        width: 2000px;
-        height: 2000px;
+        width: 1000px;
+        height: 500px;
         
         image-rendering: pixelated;
         // image-rendering: crisp-edges;

@@ -11,11 +11,28 @@
     <div class='style3'>style3</div>
     <div id="div_n_medias_cont">
       <div class="cmp_div" n="1">
-        <img class="cmp_img" n="1" src="examples/11.webp" />
+<!--         <img class="cmp_obj cmp_img" n="1" src="examples/11.webp" /> -->
+      <video  loop playsinline  class="cmp_obj cmp_img video-js" n="1" src="examples/video1.mp4" />
       </div>
       <div class="cmp_div" n="2">
-        <img class="cmp_img" n="2" src="examples/22.webp" />
+<!--         <img class="cmp_obj cmp_img" n="2" src="examples/22.webp" /> -->
+        <video  loop playsinline  class="cmp_obj cmp_img video-js" n="2" src="examples/video2.mp4" />
       </div>
     </div>
+    
+    <div id="div_vid_ctrls">
+        <button id="btn_play_pause">
+          <span id="btn_play_pause_play">▶</span>
+          <span id="btn_play_pause_pause">⏸</span>
+        </button>
+        <button id="btn_prev_frame" title="Previous frame">‹</button>
+        <button id="btn_next_frame" title="Next frame">›</button>
+        <progress id="vid_prog" value="0" min="0" max="20000"></progress>
+        <span id="span_vid_vol" style="">
+          🔉
+          <progress id="vid_vol" style="max-width: 70px;" value="100" min="0" max="100"></progress>
+        </span>
+    </div>
+    
   </body>
 </html>
