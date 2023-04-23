@@ -3,47 +3,34 @@ console.log('cmpobj.js');
 import * as c  from './common' ;
 window.c = c;
 
-// var cmpObjHandler;
-// 
-// cmpObjHandler = await cmpObjHandlerClass();
-// 
-// async function cmpObjHandlerClass() {
-//     var R = {};
-//     
-//     R.cmpObjs = [ 
-//         // type = 'image' | 'video' | 'audio'
-//         {
-//             type: 'image', 
-//             src: 'examples/11.webp', 
-//         }, 
-//         {
-//             type: 'image', 
-//             src: 'examples/22.webp', 
-//         }, 
-//         
-//     ];
-//     
-//     
-//     return R;
-// }
 
 
 var cmpObjHandler = {
     cmpObjs: [
         // type = 'image' | 'video' | 'audio'
+        
+        // {
+        //     type: 'video', 
+        //     src: 'examples/1.mp4', 
+        // 
+        // }, 
+        // {
+        //     type: 'video', 
+        //     src: 'examples/2.mp4', 
+        // },        
+        
         {
-            type: 'video', 
-            src: 'examples/1.mp4', 
-
+            type: 'image', 
+            src: 'examples/1.webp', 
         }, 
         {
-            type: 'video', 
-            src: 'examples/2.mp4', 
-        },        
-        // {
-        //     type: 'image', 
-        //     src: 'examples/11.webp', 
-        // }
+            type: 'image', 
+            src: 'examples/2.webp', 
+        }, 
+        {
+            type: 'image', 
+            src: 'examples/3.webp', 
+        }, 
     ], 
     getCurrentCmpObjAmount() {
         return this.cmpObjs.length;

@@ -13,8 +13,10 @@ var aniHandler = {
         });
         
     }, 
-    resetAni() {
-        // console.debug('resetAni()');
+    async resetAni() {
+        console.debug('resetAni()');
+        this.stopAni();
+        await c.sleep(100);
         
         this.curObj = 0;
         // aniHandler.timerId = null; // 这里有就造成其他地方读到都是null。未知问题 TODO
@@ -27,13 +29,18 @@ var aniHandler = {
             divs[i].style.width = `${(100/N)*n}%`;
         }
     }, 
-    startAni() {
+    async startAni() {
+        this.stopAni();
+        await c.sleep(100);
+        
         this.curObj = 0;
         c.$$('#div_curObjN').textContent = '-';
-        this.timerId = setInterval(this.nextAniFrame, 1300);
+        aniHandler.timerId = setInterval(this.nextAniFrame, 1300);
+        console.log('new interval timer ID: ', aniHandler.timerId);
     }, 
     stopAni() {
-        clearInterval(this.timerId);
+        console.log('clearing interval timer ID: ', aniHandler.timerId);
+        clearInterval(aniHandler.timerId);
     }, 
     nextAniFrame() {
         const N = cmpObjHandler.getCurrentCmpObjAmount();
@@ -65,28 +72,3 @@ var aniHandler = {
 }
 export {aniHandler} ;
 
-var cur_lr = 0; // 0=left 1=right
-window.moveSplitToAnother = function moveSplitToAnother()
-{
-    const stag = c.$$('#styletag_ani');
-    
-    var new_width ; 
-    if (cur_lr == 0)
-    {
-        new_width = 900
-        cur_lr = 1;
-    }
-    else{
-        new_width = 100
-        cur_lr = 0;
-        
-    }
-    
-    var stag_content = `
-        .cmp_div[n='1'] {
-            width: ${new_width}px !important;
-        }
-    `;
-    stag.textContent = stag_content;
-    
-}
