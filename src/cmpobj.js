@@ -39,8 +39,13 @@ var cmpObjHandler = {
             type: 'image', 
             src: 'examples/22.webp', 
         },        
+        {
+            type: 'image', 
+            src: 'examples/11.webp', 
+        },        
+        
     ], 
-    getCurrentCmpObjNum() {
+    getCurrentCmpObjAmount() {
         return this.cmpObjs.length;
     }, 
     getCurrentCmpObjEles() {
@@ -50,10 +55,24 @@ var cmpObjHandler = {
         this.cmpObjs.splice(n-1, 0, { type: type, src: src} );
         this.refreshDom();
     }, 
+    replaceCmpObj(n, type , src) {
+        this.cmpObjs.splice(n-1, 1, { type: type, src: src} );
+        this.refreshDom();
+    }, 
+    delCmpObj(n) {
+        if (this.getCurrentCmpObjAmount > 2 )
+        { 
+            this.cmpObjs.splice(n-1, 1 );
+            this.refreshDom();
+        } 
+        else
+            console.error("Can't delete cause at least 2 compare objects");
+    }, 
     refreshDom() {
         c.$$('#div_n_medias_cont').innerHTML = '';
         
-        for ( var i = 0; i< this.cmpObjs.length; i++)
+        const N = this.cmpObjs.length;
+        for ( var i = 0; i< N; i++)
         {
             const cmpObj = this.cmpObjs[i];
             const n = i+1;
@@ -67,16 +86,29 @@ var cmpObjHandler = {
                     cmp_obj_html = `<img class="cmp_obj cmp_img" n="${n}" src="${src}" />`;
                     break;
                 case 'video':
-                    cmp_obj_html = `<video  loop playsinline  class="cmp_obj cmp_img" n="${n}" src="${src}" />`;
+                    cmp_obj_html = `<video  loop playsinline  class="cmp_obj cmp_vid" n="${n}" src="${src}" />`;
                     break;
                 case 'audio':
                     // TODO
                     break;
             }
-            var cmp_div_html = `<div class="cmp_div" n="${n}" cmpObjType="${cmpObj.type}"> 
+            
+            var cmp_div_css = `z-index: ${N+10-n} ;` ;
+            if (n<N) {
+                cmp_div_css += `
+                    border-right : 2px solid red ;
+                    pointer-events : none;
+                `; 
+            }
+            
+            var cmp_div_html = `<div class="cmp_div" n="${n}" cmpObjType="${cmpObj.type}"
+                                    style="${cmp_div_css}"
+                                > 
                                     ${cmp_obj_html} 
                                 </div>`;
-            
+                                
+
+                                
             c.$$('#div_n_medias_cont').innerHTML += cmp_div_html ;
         }
         
