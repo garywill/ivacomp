@@ -12,7 +12,7 @@ module.exports = {
     entry: {
         // common: './src/common.js',
         compare: [ './src/compare.js'], 
-        set:[ './src/set.js'], 
+        indexpage:[ './src/indexpage.js'], 
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -67,15 +67,15 @@ module.exports = {
             // 可以是 'head' 或 'body'，默认是 'body'
             // `link` 标签的其他属性可以通过 attributes 来指定
             // 比如 `media`、`rel` 等
-            excludeChunks: ['set'],
+            // excludeChunks: ['set'],
             files: {
-                css: ['src/style1.css', 'src/style2.css']
+                // css: ['src/style1.css', 'src/style2.css']
             },
         }),
         new HtmlWebpackPlugin({
-            template: './src/set.html',
-            filename: 'set.html',
-            chunks: [ 'set'],
+            template: './src/index.html',
+            filename: 'index.html',
+            chunks: [ 'indexpage'],
             // minify: {
             //     collapseWhitespace: true
             // },
@@ -87,11 +87,11 @@ module.exports = {
                 'meta': 'viewport'
             },
             chunksSortMode: 'auto',
-            excludeChunks: ['compare'],
+            // excludeChunks: ['compare'],
             // 这里只引入了 'style1.css' 和 'style3.css' 文件
             // 排除掉了 'style2.css'，因为它只用在 compare.html 中
             files: {
-                css: ['src/style1.css', 'src/style3.css']
+                // css: ['src/style1.css', 'src/style3.css']
             },
         }), 
         new CopyPlugin({
@@ -102,12 +102,6 @@ module.exports = {
                     to: 'examples/[path][name][ext]', 
                 }
             ], 
-            [
-                {
-                    context: 'src/tbg.webp', 
-                    
-                }
-            ] , 
         }), 
     ]
 }

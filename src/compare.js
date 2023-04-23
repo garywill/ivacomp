@@ -3,9 +3,6 @@ console.log('compare.js');
 import * as c  from './common' ;
 window.c = c;
 
-import './style1.css' ;
-import './style2.css' ;
-
 import './compare.scss' ;
 
 // import 'https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'
