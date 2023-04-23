@@ -1,9 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: 'development', 
     devtool: "source-map", 
+    devServer: {
+        static: './dist',
+        hot: true,
+    },    
     entry: {
         // common: './src/common.js',
         compare: [ './src/compare.js'], 
@@ -84,6 +89,16 @@ module.exports = {
             files: {
                 css: ['src/style1.css', 'src/style3.css']
             },
-        })
+        }), 
+        new CopyPlugin({
+            patterns: [
+                {
+                    
+                    context: 'src/examples/', 
+                    from: '**/*', 
+                    to: 'examples/[path][name][ext]', 
+                }
+            ], 
+        }), 
     ]
 }
