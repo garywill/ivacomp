@@ -1,9 +1,12 @@
-var isNode =
+console.log('common.js');
+
+
+window. isNode =
     typeof process !== "undefined" &&
     process.versions != null &&
     process.versions.node != null;
   
-var isWeb = !isNode;
+window. isWeb = !isNode;
 
 if (isNode)
     console.warn("isNode");
@@ -156,3 +159,14 @@ function addListenerNDelay(eventOwner, eventName, msDelay, callbackFunction)
     }
     eventOwner.addEventListener(eventName, callbackWrapper);
 }
+
+export { 
+    onDCL  , 
+    $$, 
+    $$$, 
+    htmlStr2dom, 
+    removeNode, 
+    addListenerNDelay, 
+
+} ;
+
