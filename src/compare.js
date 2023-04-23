@@ -6,6 +6,8 @@ window.c = c;
 import './style1.css'
 import './style2.css'
 
+import './compare.scss'
+
 var onrd = new Array(); //on document ready
 c.onDCL( async (event) => {
 
