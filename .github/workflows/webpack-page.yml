@@ -48,6 +48,7 @@ jobs:
           node-version: ${{ env.node-version }}
           cache: 'npm'
           
+      - run: npm install
       - run: npx webpack
       
       - name: Setup Pages
