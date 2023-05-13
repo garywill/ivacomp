@@ -44,8 +44,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ node-version }}
-          cache: 'npm'
-        run: npm webpack
+          cache: 'npx'
+          
+      - run: npx webpack
       
       - name: Setup Pages
         uses: actions/configure-pages@v2
