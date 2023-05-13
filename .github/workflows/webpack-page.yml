@@ -46,7 +46,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.node-version }}
-          cache: 'npx'
+          cache: 'npm'
           
       - run: npx webpack
       
