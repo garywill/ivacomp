@@ -42,9 +42,9 @@ jobs:
           
       - name: use node
         uses: actions/setup-node@v3
-          with:
-            node-version: ${{ node-version }}
-            cache: 'npm'
+        with:
+          node-version: ${{ node-version }}
+          cache: 'npm'
         run: npm webpack
       
       - name: Setup Pages
