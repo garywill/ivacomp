@@ -29,8 +29,10 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      node-version: 18.x
+      
     runs-on: ubuntu-latest
+    env:
+      node-version: 18.x
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,7 +45,7 @@ jobs:
       - name: use node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ node-version }}
+          node-version: ${{ env.node-version }}
           cache: 'npx'
           
       - run: npx webpack
